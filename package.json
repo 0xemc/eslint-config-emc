@@ -1,0 +1,21 @@
+{
+  "name": "eslint-config-emc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-react": "^7.27.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.11.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-config-react": "^1.1.7"
+  },
+  "author": "",
+  "license": "ISC"
+}

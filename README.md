@@ -1,0 +1,79 @@
+# A Mildly Opinionated ESLint and Prettier Config
+
+## Install
+
+`npm install eslint-config-emc`
+
+and add the following to your eslintrc.(json|.js)
+
+```json
+  "extends": [
+    "emc"
+  ],
+```
+
+## The rules
+
+```json
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:eslint-comments/recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["react", "@typescript-eslint"],
+  "rules": {
+    "no-console": "off",
+    "require-await": "error",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-no-constructed-context-values": "error",
+    "eslint-comments/require-description": "error",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-non-null-assertion": "error",
+    "@typescript-eslint/consistent-type-assertions": [
+      "error",
+      { "assertionStyle": "never" }
+    ],
+    "@typescript-eslint/ban-ts-comment": [
+      "error",
+      { "ts-ignore": "allow-with-description", "minimumDescriptionLength": 20 }
+    ],
+
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": "CallExpression[callee.object.name='console'][callee.property.name!=/^(debug|warn|error|info|trace)$/]",
+        "message": "Unexpected use of console.log, use debug or info if necessary"
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["**.stories.*", "**.mock.*", "**.test.*", "**typeguards.ts"],
+      "rules": {
+        "@typescript-eslint/consistent-type-assertions": "off"
+      }
+    }
+  ],
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    }
+  },
+  "parser": "@typescript-eslint/parser",
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true,
+    "jest": true,
+    "cypress/globals": true
+  }
+}
+```
